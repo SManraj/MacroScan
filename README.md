@@ -31,10 +31,10 @@ Do you despise MyFitnessPal's decision to put their barcode scanning feature beh
 
 ## Demos
 
-| Create an Account | Edit Your Goals | Log Food |
-|:---:|:---:|:---:|
-| <img src="assets/images/app-images/gifs/create-account.gif" width="260" alt="Create an account with email or Google" /> | <img src="assets/images/app-images/gifs/edit-goals.gif" width="260" alt="Edit your goals to align with your weight targets" /> | <img src="assets/images/app-images/gifs/product-demo.gif" width="260" alt="Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill" /> |
-| Email/password or Google, with inline validation | Edit your goals to align with your weight targets | Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill |
+| Create an Account | Edit Your Goals | Log Food | Scan Barcode |
+|:---:|:---:|:---:|:---:|
+| <img src="assets/images/app-images/gifs/create-account.gif" width="260" alt="Create an account with email or Google" /> | <img src="assets/images/app-images/gifs/edit-goals.gif" width="260" alt="Edit your goals to align with your weight targets" /> | <img src="assets/images/app-images/gifs/product-demo.gif" width="260" alt="Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill" /> |<img src="assets/images/app-images/gifs/barcode.gif" width="260" alt="Create an account with email or Google" /> |
+| Email/password or Google, with inline validation | Edit your goals to align with your weight targets | Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill | Scan a food item's barcode to instantly recieve its macronutrients for logging |
 
 ## Screenshots
 
