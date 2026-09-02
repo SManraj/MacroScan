@@ -8,10 +8,11 @@
 
 <div align="center">
 
-<img src="assets/images/applogo.png" width="120" alt="MacroScan AI logo" />
+<img src="assets/images/thepear.png" width="120" alt="MacroScan logo" />
 
-# MacroScan AI
-
+# MacroScan
+## Contact me for the latest build download on iOS and Android
+# Beta Version 1.1.1 is Released, new features include: Water logging based on profile preference, revamped UI.
 **Track your macros by searching, scanning a barcode, or just taking a photo of your plate.**
 
 A Flutter (iOS + Android) nutrition tracker with Firebase Auth, a personalised
@@ -20,7 +21,7 @@ calorie/macro goal engine, and AI meal-photo recognition.
 [![Flutter](https://img.shields.io/badge/Flutter-3.10%2B-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10%2B-0175C2?logo=dart&logoColor=white)](https://dart.dev)
 [![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20Android-lightgrey)]()
-[![License](https://img.shields.io/badge/license-<LICENSE>-blue)](LICENSE)
+
 
 <!-- Optional: TestFlight / Play Store buttons -->
 <!-- [Join the TestFlight beta](<TESTFLIGHT_LINK>) -->
@@ -29,16 +30,16 @@ calorie/macro goal engine, and AI meal-photo recognition.
 
 ---
 
-## Demo
+## Demos
 
-<div align="center">
-  <img src="assets/images/app-images/gifs/product-demo.gif" width="260"
-       alt="Logging a meal in MacroScan AI: search, pick a serving, watch the macro bars fill" />
-</div>
+| Create an Account | Edit Your Goals | Log Food |
+|:---:|:---:|:---:|
+| <img src="assets/images/app-images/gifs/create-account.gif" width="260" alt="Create an account with email or Google" /> | <img src="assets/images/app-images/gifs/edit-goals.gif" width="260" alt="Edit your goals to align with your weight targets" /> | <img src="assets/images/app-images/gifs/product-demo.gif" width="260" alt="Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill" /> |
+| Email/password or Google, with inline validation | Edit your goals to align with your weight targets | Logging a meal in MacroScan: search, pick a serving, watch the macro bars fill |
 
 ## Screenshots
 
-| Sign in | Today's progress | Guided onboarding |
+| Sign in | Home Screen | Guided onboarding |
 |:---:|:---:|:---:|
 | <img src="assets/images/app-images/login.PNG" width="230" alt="Sign-in screen with email, password and Google sign-in" /> | <img src="assets/images/app-images/home.PNG" width="230" alt="Home tab showing calorie and macro progress bars plus a hydration card" /> | <img src="assets/images/app-images/IMG_2986.PNG" width="230" alt="Account created screen with a three-step Account, Profile, Goals progress indicator" /> |
 | Email/password or Google, with inline validation | Calories, protein, carbs and fat against your daily targets, plus water | Three-step setup: account, profile, then goals |
@@ -50,7 +51,7 @@ calorie/macro goal engine, and AI meal-photo recognition.
 - **Three ways to log food**
   - Text search with live autocomplete, backed by the FatSecret food database
   - Barcode scanning (`mobile_scanner`) for packaged products
-  - **Meal photo recognition** — snap a plate, get the food and an estimated serving back
+  - **Meal photo recognition (COMING SOON)** — Snap a pic of your plate, get the food and an estimated serving back
 - **Daily macro dashboard** — calories, protein, carbs and fat against your targets, per day, with date navigation
 - **Personalised goals** — profile (age, height, weight, sex, activity level) plus a weekly weight-change target drives the calorie and macro budget
 - **Meal-aware food log** — breakfast / lunch / dinner / snacks, swipe to delete, tap to edit servings
@@ -114,40 +115,15 @@ calorie/macro goal engine, and AI meal-photo recognition.
 **Layering rule:** screens never call `http` directly. Everything goes
 `screen → DatabaseService → CacheService → API`.
 
-**Directory map**
-
-```
-lib/
-├── main.dart                  # entry point, light/dark ThemeData
-├── auth_service.dart          # FirebaseAuth wrapper exposed as a ValueNotifier
-├── database_service.dart      # REST client + data models (FoodDetail, FoodLog, …)
-├── providers/theme_notifier.dart
-├── services/
-│   ├── cache_service.dart     # disk cache + auth header + invalidation
-│   └── water_service.dart     # water intake, ml-normalised
-├── screens/
-│   ├── main_screen.dart       # 3-tab PageView shell (Home / Log / More)
-│   ├── home_screen.dart       # daily macro progress
-│   ├── log_screen.dart        # food log by meal
-│   ├── food_detail_screen.dart, edit_food_log_screen.dart
-│   ├── barcode_scan_screen.dart, meal_scan_screen.dart
-│   ├── login_screen.dart, sign_up_screen.dart, signup_screens/…
-│   └── goals_screen.dart, profile_screen.dart, settings_screen.dart, …
-├── widgets/                   # design system: AppCard, CustomButton, AppDropdown, LoadingView
-└── utils/adaptive_dialogs.dart
-```
-
----
-
-## Getting started
+<!-- ## Getting started
 
 ### Prerequisites
 
 - Flutter SDK 3.10 or newer (`flutter doctor` should be clean)
 - Xcode (iOS) and/or Android Studio (Android)
-- A Firebase project with Auth enabled (email/password + Google)
+- A Firebase project with Auth enabled (email/password + Google) -->
 
-### Setup
+<!-- ### Setup
 
 ```bash
 git clone https://github.com/<YOUR_GITHUB_USER>/<REPO>.git
@@ -185,7 +161,7 @@ flutter test                 # unit/widget tests
 dart run flutter_launcher_icons   # regenerate app icons from assets/images/applogo.png
 flutter build ipa            # iOS release
 flutter build appbundle      # Android release
-```
+``` -->
 
 ---
 
