@@ -15,8 +15,7 @@
 # Beta Version 1.1.1 is Released, new features include: Water logging based on profile preference, revamped UI.
 **Track your macros by searching, scanning a barcode, or just taking a photo of your plate.**
 
-A Flutter (iOS + Android) nutrition tracker with Firebase Auth, a personalised
-calorie/macro goal engine, and AI meal-photo recognition.
+Do you despise MyFitnessPal's decision to put their barcode scanning feature behind a paywall. I have developed a cross platform, Flutter based, mobile application that allows you to log your daily food intake with FREE features like MyFitnessPal's restricted barcode scanning. 
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.10%2B-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10%2B-0175C2?logo=dart&logoColor=white)](https://dart.dev)
