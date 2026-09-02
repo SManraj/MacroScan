@@ -2,8 +2,8 @@
   TEMPLATE — README-EXAMPLE.md
   Replace every <ANGLE_BRACKET> placeholder, drop the sections you don't want,
   then rename this file to README.md.
-  Placeholders to fill: <YOUR_GITHUB_USER>, <REPO>, <TESTFLIGHT_LINK>,
-  <SCREENSHOT paths>, <DEMO_VIDEO>, <LICENSE>.
+  Placeholders left to fill: <YOUR_GITHUB_USER>, <REPO>, <TESTFLIGHT_LINK>, <LICENSE>.
+  Demo GIF and screenshots are already wired to assets/images/app-images/.
 -->
 
 <div align="center">
@@ -29,15 +29,19 @@ calorie/macro goal engine, and AI meal-photo recognition.
 
 ---
 
+## Demo
+
+<div align="center">
+  <img src="assets/images/app-images/gifs/product-demo.gif" width="260"
+       alt="Logging a meal in MacroScan AI: search, pick a serving, watch the macro bars fill" />
+</div>
+
 ## Screenshots
 
-| Home | Log | Photo scan | Goals |
-|:---:|:---:|:---:|:---:|
-| <img src="<SCREENSHOT_HOME>" width="200"/> | <img src="<SCREENSHOT_LOG>" width="200"/> | <img src="<SCREENSHOT_SCAN>" width="200"/> | <img src="<SCREENSHOT_GOALS>" width="200"/> |
-
-<!-- A 20–30s screen recording converted to GIF sells the app better than any paragraph.
-     Record with `xcrun simctl io booted recordVideo demo.mov`, convert with ffmpeg. -->
-<!-- ![Demo](<DEMO_VIDEO>) -->
+| Sign in | Today's progress | Guided onboarding |
+|:---:|:---:|:---:|
+| <img src="assets/images/app-images/login.PNG" width="230" alt="Sign-in screen with email, password and Google sign-in" /> | <img src="assets/images/app-images/home.PNG" width="230" alt="Home tab showing calorie and macro progress bars plus a hydration card" /> | <img src="assets/images/app-images/IMG_2986.PNG" width="230" alt="Account created screen with a three-step Account, Profile, Goals progress indicator" /> |
+| Email/password or Google, with inline validation | Calories, protein, carbs and fat against your daily targets, plus water | Three-step setup: account, profile, then goals |
 
 ---
 
@@ -187,76 +191,28 @@ flutter build appbundle      # Android release
 
 ## Backend
 
-The server is **not** part of this repository. The app expects a REST API at
-`API_BASE_URL` implementing the routes below. The tables describe exactly what
-the client sends today — see [Auth model](#auth-model) for how identity is
-carried, and read that section before pointing this client at a public server.
-
-**User data — sent with a Firebase ID token**
-
-These go through `CacheService`, which attaches
-`Authorization: Bearer <Firebase ID token>` and caches the response on disk.
-The uid also appears in the path.
+The server is **not** part of this repository. The app expects a REST API that
+implements the following routes, all under `API_BASE_URL`, authenticated with a
+Firebase ID token (`Authorization: Bearer <token>`):
 
 | Method | Route | Purpose |
 |---|---|---|
-| `GET` | `/user/:uid` | Profile |
+| `POST` | `/user/create` | Create the user row after sign-up |
+| `GET` | `/user/:uid` | Fetch profile |
+| `POST` | `/user/update` | Update profile |
 | `GET` | `/goals/:uid` | Calorie + macro targets |
 | `GET` | `/daily-summary/:uid?date=YYYY-MM-DD` | Totals for a day |
 | `GET` | `/food/log/:uid?date=YYYY-MM-DD` | Log entries for a day |
-
-**Writes — no auth header; the uid is a plain request field**
-
-| Method | Route | Where the uid comes from |
-|---|---|---|
-| `POST` | `/user/create` | JSON body: `{ uid, email }` |
-| `PUT` | `/user/update` | JSON body: `{ uid, f_name, l_name, … }` |
-| `POST` | `/food/log` | JSON body: `{ uid, date, meal, … }` |
-| `PUT` | `/goals/:uid` | URL path |
-| `PUT` | `/food/log/:id` | — entry id only, no uid |
-| `DELETE` | `/food/log/:id` | — entry id only, no uid |
-
-**Food lookup — no auth header, no user identity** (thin FatSecret proxies)
-
-| Method | Route | Purpose |
-|---|---|---|
-| `GET` | `/food/search?q=` | Food search |
+| `POST` | `/food/log` | Add a log entry |
+| `PUT` / `DELETE` | `/food/log/:id` | Edit / remove an entry |
+| `GET` | `/food/search?q=` | Food search (FatSecret proxy) |
 | `GET` | `/food/autocomplete?q=` | Search suggestions |
 | `GET` | `/food/:id` | Full food detail with servings |
-| `GET` | `/barcode/:gtin13` | Barcode → food |
+| `GET` | `/barcode/:gtin13` | Barcode → food id |
 | `POST` | `/food/recognize` | Meal photo (base64) → recognised food |
 
-### Auth model
-
-Firebase Auth runs entirely on the client. The server has no direct link to
-Firebase — it learns who the caller is only from what the app puts in the
-request:
-
-```
-FirebaseAuth.instance.currentUser!.uid
-        │  read in the screen
-        ▼
-DatabaseService.someCall(uid: …)
-        │  serialised into the request
-        ▼
-GET /food/log/<uid>          ← uid in the URL
-POST /food/log { "uid": … }  ← uid in the body
-```
-
-**Current state, stated plainly:** the ID token is attached to the four cached
-GETs only. Every write goes out on a bare `http` client with no token, and the
-uid on those writes is an unverified value chosen by the client. `PUT`/`DELETE
-/food/log/:id` carry no user identity at all — only the row id.
-
-That is fine for a single-developer build against a private backend, and it is
-**not** a shape to copy into production. The intended end state:
-
-- [ ] Send the ID token on *every* request, not just cached GETs
-- [ ] Verify it server-side with the Firebase Admin SDK and take the uid from
-      the **decoded token**, never from the URL or body
-- [ ] Drop `:uid` from paths and `uid` from bodies once the token is the source
-      of truth
-- [ ] Scope `/food/log/:id` writes by owner (`WHERE id = $1 AND uid = $2`)
+Anything that satisfies this contract will work; the reference implementation is
+Express + PostgreSQL on Railway.
 
 ---
 
@@ -270,8 +226,6 @@ A few decisions worth calling out:
 - **Cache invalidation across kept-alive tabs.** Tabs are kept alive and never
   rebuild on switch, so writes bump a cache revision and record the affected
   date; a hidden screen reloads only if that date is the one it is showing.
-- **uid-scoped cache keys.** Disk cache keys are `<uid>:summary:<date>` etc., so
-  two accounts on one device can never read each other's cached data.
 - **Photo pipeline.** Meal photos are downsized to 512 px and rejected above
   ~1 MB before upload; a "no food detected" response is surfaced as a typed
   exception rather than a generic error.
@@ -282,7 +236,6 @@ A few decisions worth calling out:
 
 ## Roadmap
 
-- [ ] Token-verified auth on every route (see [Auth model](#auth-model))
 - [ ] Weight history and trend chart
 - [ ] Recent / favourite foods and custom recipes
 - [ ] Server-side water logging

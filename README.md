@@ -1,3 +1,2 @@
-# dietingapp2026
-
-A new Flutter project.
+# MacroScan
+Do you despise MyFitnessPal's decision to put their barcode scanning feature behind a paywall. I have developed a cross platform, Flutter based, mobile application that allows you to log your daily food intake with convenient features like barcode scanning. 
