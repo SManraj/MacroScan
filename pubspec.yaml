@@ -1,0 +1,38 @@
+name: dietingapp2026
+description: "A new Flutter project."
+publish_to: "none"
+version: 1.1.1
+
+environment:
+  sdk: ^3.10.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^4.4.0
+  firebase_auth: ^6.1.4
+  http: ^1.6.0
+  flutter_dotenv: ^5.0.2
+  phosphor_flutter: ^2.1.0
+  google_sign_in: ^7.2.0
+  mobile_scanner: ^7.2.0
+  shared_preferences: ^2.2.0
+  flutter_cache_manager: ^3.4.1
+  image_picker: ^1.1.2
+  lottie: ^3.3.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  ios: true
+  android: true
+  image_path: "assets/images/applogo.png"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

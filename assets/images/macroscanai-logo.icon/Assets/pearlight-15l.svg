@@ -1,0 +1,37 @@
+<svg width="1255" height="1255" viewBox="0 0 1255 1255" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2003_2857)">
+<path d="M769.62 374.771C750.29 398.252 729.227 420.733 703.835 440.713C669.979 467.354 631.694 485.665 589.945 501.976C539.635 519.117 484.324 544.918 437.771 581.55C392.951 619.181 360.352 669.643 350.173 727.274C341.663 772.013 355.974 817.226 383.945 858.779C409.586 894.367 440.227 921.295 458.28 934.027C478.333 943.295 516.974 956.367 560.615 960.779C610.586 964.226 656.897 954.013 691.387 924.274C736.208 886.643 757.769 834.576 767.949 776.944C776.396 718.313 780.498 675.795 770.187 623.654C763.438 579.343 760.153 537.032 766.297 494.391C770.905 462.41 776.27 413.252 786.94 384.771C792.61 364.951 783.95 359.951 769.62 374.771Z" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M390.505 634.599L350.517 783.835M419.229 602.955L361.642 817.873" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M447.186 579.905L376.011 845.535M471.899 563.233L390.112 868.466" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M497.185 544.127L407.763 877.854M519.699 535.665L424.065 892.575" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M637.556 483.905L514.228 944.169M660.844 472.546L533.117 949.23" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<g filter="url(#filter0_d_2003_2857)">
+<path d="M511.627 646.347L471.639 795.584M540.351 614.703L482.763 829.622" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+</g>
+<path d="M544.881 520.672L438.377 918.151M567.652 511.244L455.454 929.973" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M590.684 504.479L476.932 929.003M612.809 497.462L494.658 938.407" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M766.14 626.032L685.517 926.918M774.935 668.764L712.559 901.553" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M768.055 460.379L637.222 948.655M762.098 558.17L659.994 939.227" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M685.091 462.478L553.223 954.617M711.357 440.011L572.113 959.679" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M741.514 408.751L593.985 959.328M769.203 380.971L615.335 955.214" stroke="white" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M818.956 337.879L827.352 327.673L840.389 325.505L830.183 317.109L828.014 304.072L819.618 314.278L806.581 316.446L816.787 324.843L818.956 337.879Z" fill="white"/>
+<path d="M806.259 352.422L798.372 345.995L796.67 336.049L790.222 343.811L780.179 345.434L788.066 351.861L789.768 361.807L796.216 354.045L806.259 352.422Z" fill="white"/>
+<path d="M896.268 319.805L891.578 289.01L872.12 313.334L842.2 318.743L865.407 338.388L870.096 369.182L889.555 344.858L919.474 339.449L896.268 319.805ZM884.29 335.338L876.581 344.98L874.727 332.776L865.527 324.994L877.385 322.854L885.094 313.212L886.948 325.417L896.147 333.198L884.29 335.338Z" fill="white"/>
+<rect x="462.314" y="932.847" width="73" height="10" transform="rotate(15 462.314 932.847)" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_2003_2857" x="461.515" y="608.579" width="88.959" height="235.166" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2003_2857"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2003_2857" result="shape"/>
+</filter>
+<clipPath id="clip0_2003_2857">
+<rect width="1024" height="1024" fill="white" transform="translate(265.031) rotate(15)"/>
+</clipPath>
+</defs>
+</svg>
