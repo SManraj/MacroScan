@@ -83,33 +83,12 @@ Do you despise MyFitnessPal's decision to put their barcode scanning feature beh
 ---
 
 ## Architecture
+<div align="center">
 
-```
-┌──────────────────────────── Flutter app ─────────────────────────────┐
-│                                                                      │
-│  Screens (Home / Log / More, PageView shell, kept alive)             │
-│      │                                                               │
-│      ▼                                                               │
-│  DatabaseService  ── all REST calls + all data models                │
-│      │                                                               │
-│      ▼                                                               │
-│  CacheService     ── disk cache for GETs, uid-scoped keys,           │
-│                      attaches the Firebase ID token                  │
-└──────────────────────────────┬───────────────────────────────────────┘
-                               │ HTTPS
-                               ▼
-                    ┌────────────────────┐        ┌────────────────────┐
-                    │  Express API       │───────▶│  FatSecret API     │
-                    │  (private repo)    │        │  search / barcode  │
-                    └─────────┬──────────┘        │  / recognition     │
-                              │                   └────────────────────┘
-                              ▼
-                    ┌────────────────────┐
-                    │  PostgreSQL        │
-                    │  users, goals,     │
-                    │  food_log          │
-                    └────────────────────┘
-```
+<img src="assets/images/MacroScan-Architecture.png" width="" alt="Basic Overview on Application's Architecture" />
+
+</div>
+
 
 **Layering rule:** screens never call `http` directly. Everything goes
 `screen → DatabaseService → CacheService → API`.
